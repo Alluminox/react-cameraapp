@@ -43,7 +43,7 @@ export default class GeolocationForm extends React.Component {
                     this.setState({
                         pickCam: {
                             enabled: true,
-                            streamData: stream
+                            streamData: window.URL.createObjectURL(stream)
                         }
                     })
                     // video.srcObject = stream
@@ -92,7 +92,7 @@ export default class GeolocationForm extends React.Component {
                     </div> 
 
 
-                    { pickCam.streamData && <video autoPlay src={pickCam.streamData} ></video> }
+                    { pickCam.streamData && <video autoPlay="true" src={pickCam.streamData} ></video> }
                 </form>
             </div>
         ) : ( <span className="alert alert-danger">Localização Desabilitada</span>);
